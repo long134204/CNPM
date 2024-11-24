@@ -18,6 +18,4 @@ public class RequestUpdate {
     private Boolean gender;
     private String email;
     private String password;
-    private Role role;
-    private String token;
 }
