@@ -1,13 +1,17 @@
 package com.example.loginregister.controller;
 
+import com.example.loginregister.dto.request.RefreshRequest;
 import com.example.loginregister.dto.request.RequestUpdate;
 import com.example.loginregister.dto.response.ResponseData;
 import com.example.loginregister.service.UserService;
+import jakarta.mail.MessagingException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -53,5 +57,10 @@ public class UserController {
     @PreAuthorize("hasAuthority('ADMIN')")
     ResponseData<?> listAdmin(){
         return userService.getListAdmin();
+    }
+
+    @GetMapping("/refresh-password")
+    void refresh(@RequestBody RefreshRequest request) throws MessagingException, IOException {
+         userService.refresh(request);
     }
 }

@@ -20,7 +20,8 @@ public enum ErrorCode {
     EMAIL_EXIST(1012,"Email is exist", HttpStatus.BAD_REQUEST),
     PASSWORD_NOT_EMPTY(1013,"Password not empty", HttpStatus.BAD_REQUEST ),
     INVALID_DATA(1014, "Invalid data", HttpStatus.BAD_REQUEST),
-    UNAUTHORIZED(1007, "You do not have permission", HttpStatus.FORBIDDEN);
+    UNAUTHORIZED(1015, "You do not have permission", HttpStatus.FORBIDDEN),
+    EMAIL_NOT_EXIST(1016,"Email not exist" ,HttpStatus.NOT_FOUND );
 
     Integer code;
     String message;
